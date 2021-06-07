@@ -25,12 +25,12 @@ sealed class EditMemberTagsMethod : MailchimpMethod<MemberInfo>() {
     ) : EditMemberTagsMethod(){
         @JvmField
         @PathParam
-        val subscriber_hash: String = DigistUtils.md5Hex(email_addressq.toLowerCase())
+        val subscriber_hash: String = DigestUtils.md5Hex(email_address.toLowerCase())
     }
 
     @JvmField
     @Field
-    var tags: MailChimpObject? = null;
+    var tags: MailchimpObject? = null;
 
     @JvmField
     @Field
