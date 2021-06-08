@@ -2,6 +2,7 @@ package com.ecwid.maleorang.method.v3_0.lists.members
 
 
 import com.ecwid.maleorang.MailchimpMethod
+import com.ecwid.maleorang.MailchimpObject
 import com.ecwid.maleorang.annotation.*
 import org.apache.commons.codec.digest.DigestUtils
 
@@ -15,7 +16,7 @@ class GetMemberTagsMethod(
     val list_id: String,
 
     email: String
-) : MailchimpMethod<MemberInfo>() {
+) : MailchimpMethod<MailchimpObject>() {
     @JvmField
     @PathParam
     val subscriber_hash: String = DigestUtils.md5Hex(email.toLowerCase())
