@@ -91,7 +91,7 @@ class MemberInfo : MailchimpObject() {
 
 //    @JvmField
 //    @Field
-//    var marketing_permissions: MailChimpObject? = null;
+//    var marketing_permissions: MailchimpObject? = null;
 
     @JvmField
     @Field
@@ -103,10 +103,6 @@ class MemberInfo : MailchimpObject() {
 //
 //    @JvmField
 //    @Field
-//    var source: String? = null
-//
-//    @JvmField
-//    @Feild
 //    var tags_count: Int? = null
 //
 //    @JvmField
