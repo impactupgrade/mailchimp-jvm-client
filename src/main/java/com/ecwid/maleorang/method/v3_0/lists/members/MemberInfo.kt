@@ -19,7 +19,23 @@ class MemberInfo : MailchimpObject() {
 
     @JvmField
     @Field
+    var full_name: String? = null
+
+    @JvmField
+    @Field
+    var web_id: Int? = null
+
+    @JvmField
+    @Field
+    var email_type: String? = null
+
+    @JvmField
+    @Field
     var status: String? = null
+
+    @JvmField
+    @Field
+    var unsubscribe_reason: String? = null
 
     @JvmField
     @Field
@@ -75,9 +91,31 @@ class MemberInfo : MailchimpObject() {
 
     @JvmField
     @Field
+    var marketing_permissions: MailchimpObject? = null
+
+    @JvmField
+    @Field
     var last_note: MailchimpObject? = null
 
     @JvmField
     @Field
+    var source: String? = null
+
+    @JvmField
+    @Field
+    var tags_count: Int? = null
+
+    @JvmField
+    @Field
+    var tags: ArrayList<MailchimpObject>? = null
+
+    @JvmField
+    @Field
     var list_id: String? = null
+
+    @JvmField
+    @Field
+    var _links: ArrayList<MailchimpObject>? = null
+
+
 }
