@@ -57,7 +57,8 @@ class MergeFieldInfo : MailchimpObject() {
 
     @JvmField
     @Field
-    var public: Boolean? = null
+    @SerializedName("public") // public is reserved in Java
+    var is_public: Boolean? = null
 
     @JvmField
     @Field

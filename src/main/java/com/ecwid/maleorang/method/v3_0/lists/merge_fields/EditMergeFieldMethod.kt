@@ -3,12 +3,12 @@ package com.ecwid.maleorang.method.v3_0.lists.merge_fields
 import com.ecwid.maleorang.MailchimpMethod
 import com.ecwid.maleorang.MailchimpObject
 import com.ecwid.maleorang.annotation.*
-import com.ecwid.maleorang.method.v3_0.lists.members.MemberInfo
+import com.google.gson.annotations.SerializedName
 
 /**
  * Base class for editing merge fields (formerly merge vars) for a specific list
  */
-sealed class EditMergeFieldMethod : MailchimpMethod<MemberInfo>() {
+sealed class EditMergeFieldMethod : MailchimpMethod<MergeFieldInfo>() {
 
     /**
      * [Add a new merge field for a specific list](https://developer.mailchimp.com/documentation/mailchimp/reference/lists/merge-fields/#create-post_lists_list_id_merge_fields)
@@ -56,7 +56,8 @@ sealed class EditMergeFieldMethod : MailchimpMethod<MemberInfo>() {
 
     @JvmField
     @Field
-    var public: Boolean? = null
+    @SerializedName("public") // public is reserved in Java
+    var is_public: Boolean? = null
 
     @JvmField
     @Field

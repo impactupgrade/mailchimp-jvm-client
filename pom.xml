@@ -30,7 +30,7 @@
     </developers>
 
     <properties>
-        <version.kotlin>1.4.31</version.kotlin>
+        <version.kotlin>1.5.31</version.kotlin>
 
         <kotlin.compiler.incremental>true</kotlin.compiler.incremental>
     </properties>
