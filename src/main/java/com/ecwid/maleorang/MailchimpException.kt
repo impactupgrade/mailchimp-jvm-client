@@ -4,15 +4,12 @@ package com.ecwid.maleorang
  * Indicates a MailChimp API error.
  */
 class MailchimpException(
-        /**
-         * Error code.
-         */
         @JvmField
         val code: Int,
 
-        /**
-         * Error description.
-         */
         @JvmField
-        val description: String
+        val description: String,
+
+        @JvmField
+        val errors: List<String>? = null
 ) : Exception("API Error ($code): $description")

@@ -60,14 +60,28 @@ open class MailchimpClient protected constructor (
             var description = response.reasonPhrase
 
             if (response.responseBody != null) {
+                val errors = mutableListOf<String>()
+
                 try {
-                    val error = JsonParser().parse(response.responseBody).asJsonObject
-                    code = error.get("status").asInt
-                    description = error.get("detail").asString
-                } catch (e: Exception){}
+                    val responseBodyObject = JsonParser().parse(response.responseBody).asJsonObject
+                    code = responseBodyObject.get("status").asInt
+                    description = responseBodyObject.get("detail").asString
+                    if (responseBodyObject.has("errors")) {
+                        responseBodyObject.get("errors").asJsonArray.forEach {
+                            val errorObject = it.asJsonObject
+                            val error = errorObject.get("field").asString + ": " + errorObject.get("message").asString
+                            errors.add(error)
+                        }
+                    }
+                } catch (e: Exception){
+                    e.printStackTrace()
+                }
+
+                throw MailchimpException(code, description, errors)
+            } else {
+                throw MailchimpException(code, description)
             }
 
-            throw MailchimpException(code, description)
         }
 
         return MailchimpObject.fromJson(response.responseBody ?: "{}", method.resultType)
