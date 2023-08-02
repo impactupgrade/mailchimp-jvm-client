@@ -5,6 +5,7 @@ import com.ecwid.maleorang.connector.HttpClientConnector
 import com.google.gson.JsonParser
 import java.io.Closeable
 import java.io.IOException
+import java.net.SocketTimeoutException
 import java.util.logging.Level
 import java.util.logging.Logger
 
@@ -44,7 +45,13 @@ open class MailchimpClient protected constructor (
             log.finest(sb.toString())
         }
 
-        val response = connector.call(request)
+        val response = try {
+            connector.call(request)
+        } catch (e: SocketTimeoutException) {
+            log.info("request timed out -- waiting 10s and trying again")
+            Thread.sleep(10000)
+            connector.call(request)
+        }
 
         if (log.isLoggable(Level.FINEST)) {
             val sb = StringBuilder("Response: ")
