@@ -35,6 +35,22 @@ class MemberInfo : MailchimpObject() {
 
     @JvmField
     @Field
+    var consents_to_one_to_one_messaging: Boolean? = null
+
+    @JvmField
+    @Field
+    var sms_phone_number: String? = null
+
+    @JvmField
+    @Field
+    var sms_subscription_status: String? = null
+
+    @JvmField
+    @Field
+    var sms_subscription_last_updated: String? = null
+
+    @JvmField
+    @Field
     var unsubscribe_reason: String? = null
 
     @JvmField
