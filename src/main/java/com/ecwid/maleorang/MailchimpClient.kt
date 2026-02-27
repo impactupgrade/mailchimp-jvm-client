@@ -48,8 +48,8 @@ open class MailchimpClient protected constructor (
         val response = try {
             connector.call(request)
         } catch (e: SocketTimeoutException) {
-            log.info("request timed out -- waiting 10s and trying again")
-            Thread.sleep(10000)
+            log.info("request timed out -- waiting 30s and trying again")
+            Thread.sleep(30000)
             connector.call(request)
         }
 
